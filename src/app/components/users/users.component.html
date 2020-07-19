@@ -1,0 +1,12 @@
+<div>
+<form [formGroup]="repo">
+  <mat-form-field appearance="outline">
+    <input matInput type="text" formControlName="username">
+  </mat-form-field>
+  <button mat-button color="primary" (click)="getUserRepo()">Repositorios</button>
+
+  <ul *ngFor="let repo of repositoryModel">
+    <li>{{repo.name}}</li>
+  </ul>
+</form>
+</div>
