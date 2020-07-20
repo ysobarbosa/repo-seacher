@@ -1,12 +1,45 @@
-<div>
-<form [formGroup]="repo">
-  <mat-form-field appearance="outline">
-    <input matInput type="text" formControlName="username">
-  </mat-form-field>
-  <button mat-button color="primary" (click)="getUserRepo()">Repositorios</button>
+<div fxLayout="column">
+  <header>
+    <mat-toolbar color="primary">
+    </mat-toolbar>
+  </header>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxFlex.gt-sm="50%" fxFlex.gt-xs="25%">
+    <form [formGroup]="repo">
+      <mat-form-field class="input" appearance="outline">
+        <input  matInput type="text" formControlName="username"  required>
+        <mat-error> Informe o usuário para consulta</mat-error>
+      </mat-form-field>
+      <button class="buttonbox" mat-button (click)="getUserRepo()">Repositorios</button>
+    </form>
+  </div>
+  <!--<div fxLayout="row" fxLayoutAlign="center center">-->
+    <!--<img src="https://avatars0.githubusercontent.com/u/59396707?v=4">-->
+  <!--</div>-->
+  <div>
+    <mat-tab-group fxLayout="column"  fxLayoutAlign="center center">
+      <mat-tab label="First">
+        <mat-card class="main-card">
+        <div  fxLayout="row wrap" fxLayout.xs="column wrap" fxLayout.gt-lg="row wrap" fxLayout.lg="row wrap" >
+          <div fxFlex.gt-xs="50%"  [fxFlex.gt-md]="distribution"  *ngFor="let repo of repositoryModel">
+          <mat-card class="card">
+            {{repo.name}}
+          </mat-card>
+        </div>
+        </div>
+        </mat-card>
 
-  <ul *ngFor="let repo of repositoryModel">
-    <li>{{repo.name}}</li>
-  </ul>
-</form>
+      </mat-tab>
+      <mat-tab label="Second">
+        <mat-card>
+          <div class="list" *ngFor="let repo of repositoryModel">
+          <p>{{repo.name}}</p>
+          </div>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+    <!--<ul >-->
+      <!--<li></li>-->
+    <!--</ul>-->
+  </div>
 </div>
+
