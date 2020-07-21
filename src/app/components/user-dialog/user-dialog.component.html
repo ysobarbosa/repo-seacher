@@ -1,8 +1,8 @@
 
 <div mat-dialog-title>Detalhes do respositório</div>
-<div >
-  <p>{{repositoryData[0].name}}</p>
-  <p>{{repositoryData[5].description}}</p>
+<div *ngFor="let data of repositoryData">
+        <p> nome: {{data.name}}</p>
+  <p>descrição: {{data.description}}</p>
 </div>
 
 

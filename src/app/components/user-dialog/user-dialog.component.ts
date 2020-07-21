@@ -12,8 +12,9 @@ export class UserDialogComponent implements OnInit{
    constructor(@Inject(MAT_DIALOG_DATA) public repositoryData: Repositories) {}
 
   ngOnInit(){
-    console.log(typeof this.repositoryData);
+
   }
+
 
 
 }

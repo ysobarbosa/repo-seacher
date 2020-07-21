@@ -10,14 +10,12 @@
             <mat-error> Informe o usuário para consulta</mat-error>
           </mat-form-field>
           <button [disabled]="this.repo.controls.username.invalid" class="buttonbox" mat-raised-button (click)="getUserRepo()">
-            Repositorios
+            Repositórios
           </button>
         </form>
       </div>
     </mat-card>
   </header>
-
-
 
   <div *ngIf=this.hasUser>
     <mat-card class="user-card">
@@ -27,6 +25,11 @@
         </div>
         <div fxFlex="30" fxFlex.gt-sm="15">
           <span class="username">{{this.userModel.name}}</span> - <span class="login-name">{{this.userModel.login}} </span>
+          <div class="text">
+            <p>{{this.userModel.location}}</p>
+            <p>{{this.userModel.followers}} Seguidores</p>
+            <p> {{this.userModel.public_repos}} Repositórios Públicos </p>
+          </div>
         </div>
       </div>
     </mat-card>
@@ -38,14 +41,16 @@
           </div>
         </mat-card>
       </mat-tab>
-
-      <mat-tab label="Expandir">
+      <mat-tab label="Detalhar">
         <mat-card class="main-card" >
           <div  fxLayout="row wrap" fxLayout.xs="column wrap" fxLayout.gt-lg="row wrap" fxLayout.lg="row wrap" >
             <div fxFlex.gt-xs="50%"  [fxFlex.gt-md]="distribution"  *ngFor="let repo of repositoryModel">
               <mat-card class="card">
                 <a (click)="openDialog()">{{repo.name}}</a>
                 <p>Descrição: {{repo.description}}</p>
+                <p>Nome completo: {{repo.full_name}} </p>
+                <p>Observadores: {{repo.watchers}}</p>
+                  <a href="{{repo.html_url}}">Ver mais</a>
               </mat-card>
             </div>
           </div>

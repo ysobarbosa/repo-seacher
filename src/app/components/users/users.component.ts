@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   userModel: UserModel;
   distribution = 100 / 2 + '%';
   hasUser = false;
+  repositoryId = [];
 
 
   repo = new FormGroup({
@@ -47,11 +48,7 @@ export class UsersComponent implements OnInit {
         .getRepository(username)
         .subscribe(data => {
             this.repositoryModel = data;
-            console.log(this.repositoryModel);
-            // this.repoName = this.repositoryModel[0].name;
-            // this.repoDescription = this.repositoryModel[0].description;
             this.hasUser = true;
-            // console.log(this.repoName);
           },
     error => {
       if(error.statusText === 'Not Found'){
@@ -66,18 +63,8 @@ export class UsersComponent implements OnInit {
       }
 
     },);
-    this.getUserPic()
+    this.getUserPic();
   }
-
-  // objetoLista = (objeto) => {
-  //   const lista = [];
-  //   const keys = Object.keys(objeto);
-  //   keys.forEach(element => {
-  //     const obj = {... objeto[element]};
-  //     lista.push(obj);
-  //   });
-  //   return lista;
-  // };
 
   openDialog() {
     this.dialog.open(UserDialogComponent, {

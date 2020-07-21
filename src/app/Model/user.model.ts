@@ -20,4 +20,7 @@ export interface Repositories {
   organizations_url: string;
   repos_url: string
   description: string;
+  created_at: string;
+  watchers: number;
+  html_url: string;
 }
