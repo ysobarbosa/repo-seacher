@@ -8,6 +8,8 @@ Se sua máquina já estiver com o a versão mais recente do AngularCli (9.1.4), 
 
 - Clone este repositório, e no terminal do seu computador, rode o comando `git clone >url_clonada<`;
 
+- Rode o comando `npm i -s @angular/flex-layout @angular/cdk` para utilizar o layout responsivo; 
+
 - Rode `ng serve` e aguarde a compilação;
 
 -Entre na url http:\\http://localhost:4200/
