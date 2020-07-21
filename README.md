@@ -12,11 +12,11 @@ Se sua máquina já estiver com o a versão mais recente do AngularCli (9.1.4), 
 
 - Rode `ng serve` e aguarde a compilação;
 
--Entre na url http:\\http://localhost:4200/
+- Entre na url http:\\http://localhost:4200/
 
 Para utilizar a aplicação: 
 
--Insira um usuário existente no github;
+- Insira um usuário existente no github;
 
 - Para ver a lista de repositórios, mantenha-se na mesma página;
 
