@@ -22,6 +22,8 @@ Para utilizar a aplicação:
 
 - Para detalhes dos repositórios, mude a aba de "Listar" para "Detalhar"; 
 
+Obs.: O link está funcionando mal. A intenção era que o mesmo chamasse os detalhes do repositório selecionado, mas está chamando todos os repositórios.
+
 # RepositorySearcher
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
