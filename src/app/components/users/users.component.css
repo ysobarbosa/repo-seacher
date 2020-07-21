@@ -1,32 +1,117 @@
-header mat-toolbar {
-  background: linear-gradient(90deg, #05122B 0%, #557FCF 100%);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
+.main {
+  display: flex;
+}
+
+.h-header {
+  position: absolute;
+  width: 100%;
+  height: 22px;
+  left: 0px;
+  top: 0px;
+  background: #91517A;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header  {
+  background: darkgrey;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  margin-bottom: 8px;
+  height: 150px;
+  width: 100%;
+
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #d6d6d6 !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #7c004f !important;
+  opacity: 1!important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
+}
+
+button {
+  border-radius: 5px;
   margin-bottom: 16px;
+  background: #7c004f;
 }
-
-.input {
-  min-width: 150px;
-  max-width: 600px;
-
-
-  /*background: rgba(48, 120, 253, 0.26);*/
-  /*box-shadow: 0px 3px 4px rgba(48, 253, 205, 0.26);*/
-  /*border-radius: 10px;*/
-}
-
 .buttonbox {
   margin-left: 20px;
   height: 50px;
+  border: 50px
 }
 
 .main-card {
   margin: 32px 32px 8px 32px;
-  background-color: #557FCF;
+  background: linear-gradient(180deg, rgba(156, 143, 255, 0.01) 0%, rgba(122, 105, 116, 0) 48.1%);
 
+}
+.user-card {
+  background: linear-gradient(153.6deg, #7c004f 16.59%, rgba(122, 105, 116, 0) 48.1%);
+  box-shadow: inset 2px 2px 5px #7a6974;
+}
+
+.username {
+  margin-top: 16px;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.login-name {
+  font-weight: 200;
+  font-size: 15px
+}
+
+.text {
+  font-weight: 300;
+  margin-top: 6px;
+  margin-bottom: 1px;
 }
 
 .card {
- margin: 8px;
-  height:185px ;
+  background: linear-gradient(180deg, rgba(142, 122, 245, 0.02) 0%, rgba(122, 105, 116, 0) 48.1%);
+  box-shadow: inset 2px 2px 5px #7a6974;
+  border-radius: 10px;
+  margin: 8px;
+}
 
+.avatar-image {
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px #414141;
+}
+
+ a {
+  color:  #7c004f;
+  margin-bottom: 100px;
+  font-weight: 300;
+  font-size: 19px;
+   position: relative;
+   text-decoration: none;
+ }
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }

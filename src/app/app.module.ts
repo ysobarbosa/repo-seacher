@@ -22,13 +22,19 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {UserDialogComponent} from './components/user-dialog/user-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
+    UserDialogComponent
+
+
   ],
+  entryComponents: [UserDialogComponent],
   imports: [
     BrowserModule,
     MatCardModule,
@@ -49,7 +55,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatToolbarModule,
     FlexLayoutModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
 
   ],
   providers: [GithubService],

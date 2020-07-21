@@ -1,45 +1,62 @@
-<div fxLayout="column">
+<div class="main" fxLayout="column">
   <header>
-    <mat-toolbar color="primary">
-    </mat-toolbar>
+    <div class="h-header" fxLayout="10"></div>
+    <mat-card class="header">
+      <div  fxLayoutAlign="center end" fxFlex.lg="100%" fxFlex.gt-sm="25%" fxFlex.gt-xs="25%">
+        <form [formGroup]="repo">
+          <mat-form-field class="input" appearance="outline">
+            <mat-label> Insira um usuário</mat-label>
+            <input  matInput type="text" formControlName="username"   required>
+            <mat-error> Informe o usuário para consulta</mat-error>
+          </mat-form-field>
+          <button [disabled]="this.repo.controls.username.invalid" class="buttonbox" mat-raised-button (click)="getUserRepo()">
+            Repositórios
+          </button>
+        </form>
+      </div>
+    </mat-card>
   </header>
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxFlex.gt-sm="50%" fxFlex.gt-xs="25%">
-    <form [formGroup]="repo">
-      <mat-form-field class="input" appearance="outline">
-        <input  matInput type="text" formControlName="username"  required>
-        <mat-error> Informe o usuário para consulta</mat-error>
-      </mat-form-field>
-      <button class="buttonbox" mat-button (click)="getUserRepo()">Repositorios</button>
-    </form>
-  </div>
-  <!--<div fxLayout="row" fxLayoutAlign="center center">-->
-    <!--<img src="https://avatars0.githubusercontent.com/u/59396707?v=4">-->
-  <!--</div>-->
-  <div>
-    <mat-tab-group fxLayout="column"  fxLayoutAlign="center center">
-      <mat-tab label="First">
-        <mat-card class="main-card">
-        <div  fxLayout="row wrap" fxLayout.xs="column wrap" fxLayout.gt-lg="row wrap" fxLayout.lg="row wrap" >
-          <div fxFlex.gt-xs="50%"  [fxFlex.gt-md]="distribution"  *ngFor="let repo of repositoryModel">
-          <mat-card class="card">
-            {{repo.name}}
-          </mat-card>
-        </div>
-        </div>
-        </mat-card>
 
+  <div *ngIf=this.hasUser>
+    <mat-card class="user-card">
+        <div fxLayout="row">
+        <div fxFlex="30"  fxFlex.gt-sm="15" fxLayout="row" fxLayoutAlign="center center">
+          <img class="avatar-image" src="{{this.userModel.avatar_url}}">
+        </div>
+        <div fxFlex="30" fxFlex.gt-sm="15">
+          <span class="username">{{this.userModel.name}}</span> - <span class="login-name">{{this.userModel.login}} </span>
+          <div class="text">
+            <p>{{this.userModel.location}}</p>
+            <p>{{this.userModel.followers}} Seguidores</p>
+            <p> {{this.userModel.public_repos}} Repositórios Públicos </p>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+    <mat-tab-group fxLayout="column"  fxLayoutAlign="center center" fxLayout.gt-lg="100%">
+      <mat-tab label="Listar">
+        <mat-card class="main-card card list">
+          <div *ngFor="let repo of repositoryModel" style="margin-bottom: 16px">
+            <a   (click)="openDialog()">{{repo.name}}</a>
+          </div>
+        </mat-card>
       </mat-tab>
-      <mat-tab label="Second">
-        <mat-card>
-          <div class="list" *ngFor="let repo of repositoryModel">
-          <p>{{repo.name}}</p>
+      <mat-tab label="Detalhar">
+        <mat-card class="main-card" >
+          <div  fxLayout="row wrap" fxLayout.xs="column wrap" fxLayout.gt-lg="row wrap" fxLayout.lg="row wrap" >
+            <div fxFlex.gt-xs="50%"  [fxFlex.gt-md]="distribution"  *ngFor="let repo of repositoryModel">
+              <mat-card class="card">
+                <a (click)="openDialog()">{{repo.name}}</a>
+                <p>Descrição: {{repo.description}}</p>
+                <p>Nome completo: {{repo.full_name}} </p>
+                <p>Observadores: {{repo.watchers}}</p>
+                  <a href="{{repo.html_url}}">Ver mais</a>
+              </mat-card>
+            </div>
           </div>
         </mat-card>
       </mat-tab>
     </mat-tab-group>
-    <!--<ul >-->
-      <!--<li></li>-->
-    <!--</ul>-->
   </div>
 </div>
 
